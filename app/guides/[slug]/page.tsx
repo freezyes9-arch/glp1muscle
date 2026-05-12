@@ -50,17 +50,34 @@ export default async function GuidePage({ params }: PageProps) {
               <p className="mt-3 leading-7 text-slate-600 dark:text-slate-300">{section.body}</p>
             </section>
           ))}
+
           {guide.table && (
             <div className="mt-8 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800">
-              <div className="grid bg-slate-50 text-sm font-semibold text-slate-700 dark:bg-slate-900 dark:text-slate-200" style={{ gridTemplateColumns: `repeat(${guide.table.columns.length}, minmax(0, 1fr))` }}>
+              <div
+                className="grid bg-slate-50 text-sm font-semibold text-slate-700 dark:bg-slate-900 dark:text-slate-200"
+                style={{
+                  gridTemplateColumns: `repeat(${guide.table?.columns?.length || 1}, minmax(0, 1fr))`
+                }}
+              >
                 {guide.table.columns.map((column) => (
-                  <div key={column} className="p-3">{column}</div>
+                  <div key={column} className="p-3">
+                    {column}
+                  </div>
                 ))}
               </div>
+
               {guide.table.rows.map((row) => (
-                <div key={row.join("-")} className="grid border-t border-slate-200 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-300" style={{ gridTemplateColumns: `repeat(${guide.table.columns.length}, minmax(0, 1fr))` }}>
+                <div
+                  key={row.join("-")}
+                  className="grid border-t border-slate-200 text-sm text-slate-600 dark:border-slate-800 dark:text-slate-300"
+                  style={{
+                    gridTemplateColumns: `repeat(${guide.table?.columns?.length || 1}, minmax(0, 1fr))`
+                  }}
+                >
                   {row.map((cell) => (
-                    <div key={cell} className="p-3">{cell}</div>
+                    <div key={cell} className="p-3">
+                      {cell}
+                    </div>
                   ))}
                 </div>
               ))}
@@ -68,29 +85,50 @@ export default async function GuidePage({ params }: PageProps) {
           )}
         </div>
       </Section>
+
       <Section title="Practical Next Steps">
         <div className="mx-auto grid max-w-3xl gap-3">
           {guide.recommendations.map((item) => (
-            <p key={item} className="rounded-lg border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-700 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200">
+            <p
+              key={item}
+              className="rounded-lg border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-700 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-200"
+            >
               {item}
             </p>
           ))}
+
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
-            <Link href="/muscle-loss-risk" className="rounded-lg bg-ink px-4 py-3 text-center font-semibold text-white dark:bg-white dark:text-ink">
+            <Link
+              href="/muscle-loss-risk"
+              className="rounded-lg bg-ink px-4 py-3 text-center font-semibold text-white dark:bg-white dark:text-ink"
+            >
               Calculate Muscle Loss Risk
             </Link>
-            <Link href="/protein-calculator" className="rounded-lg border border-slate-300 px-4 py-3 text-center font-semibold text-ink dark:border-slate-700 dark:text-white">
+
+            <Link
+              href="/protein-calculator"
+              className="rounded-lg border border-slate-300 px-4 py-3 text-center font-semibold text-ink dark:border-slate-700 dark:text-white"
+            >
               Calculate Protein Needs
             </Link>
           </div>
         </div>
       </Section>
+
       <Section title="FAQ">
         <div className="mx-auto grid max-w-3xl gap-4">
           {guide.faqs.map((faq) => (
-            <details key={faq.question} className="rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950">
-              <summary className="cursor-pointer font-semibold text-ink dark:text-white">{faq.question}</summary>
-              <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{faq.answer}</p>
+            <details
+              key={faq.question}
+              className="rounded-lg border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-950"
+            >
+              <summary className="cursor-pointer font-semibold text-ink dark:text-white">
+                {faq.question}
+              </summary>
+
+              <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                {faq.answer}
+              </p>
             </details>
           ))}
         </div>
