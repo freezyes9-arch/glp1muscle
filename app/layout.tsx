@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
 
   verification: {
-    google: "URN7WfAqpsvdUCUknj_SFZjb78FkbOfKTJczdWC9a2A",
+    google: "URN7WfAqpsvdUCUknj_SFZjb78FkbOfKTJczdWC9a2A"
   },
 
   title: {
@@ -23,7 +23,9 @@ export const metadata: Metadata = {
   description:
     "Free GLP-1 muscle loss and protein calculators for Ozempic, Wegovy, Mounjaro, and Zepbound users who want to preserve strength while losing weight.",
 
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/"
+  },
 
   openGraph: {
     title: "GLP-1 Intelligence",
@@ -36,7 +38,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "GLP-1 Intelligence",
-    description: "Calculate muscle loss risk and protein needs while losing weight on GLP-1s."
+    description:
+      "Calculate muscle loss risk and protein needs while losing weight on GLP-1s."
   }
 };
 
@@ -44,12 +47,22 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fbff" },
-    { media: "(prefers-color-scheme: dark)", color: "#08111f" }
+    {
+      media: "(prefers-color-scheme: light)",
+      color: "#f8fbff"
+    },
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: "#08111f"
+    }
   ]
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+  children
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
