@@ -10,13 +10,21 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
+
+  verification: {
+    google: "URN7WfAqpsvdUCUknj_SFZjb78FkbOfKTJczdWC9a2A",
+  },
+
   title: {
     default: "GLP-1 Intelligence | Muscle Loss and Protein Calculators for GLP-1 Users",
     template: "%s | GLP-1 Intelligence"
   },
+
   description:
     "Free GLP-1 muscle loss and protein calculators for Ozempic, Wegovy, Mounjaro, and Zepbound users who want to preserve strength while losing weight.",
+
   alternates: { canonical: "/" },
+
   openGraph: {
     title: "GLP-1 Intelligence",
     description: "Muscle preservation calculators and practical GLP-1 protein tools.",
@@ -24,6 +32,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     type: "website"
   },
+
   twitter: {
     card: "summary_large_image",
     title: "GLP-1 Intelligence",
